@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "4topBibnAy7MgifF0SVT/N2EkZ6fZbtTIGC/JISsdNY=",
+  "Source": "Voteapp.API",
+  "BasePath": "_content/Voteapp.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
