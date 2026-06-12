@@ -32,6 +32,24 @@ using (var scope = app.Services.CreateScope())
     await dbContext.Database.EnsureCreatedAsync();
 }
 
+// Serve built frontend (from Voteapp-client/dist) in production
+var frontendDistPath = Path.Combine(app.Environment.ContentRootPath, "..", "Voteapp-client", "dist");
+if (Directory.Exists(frontendDistPath))
+{
+    app.UseDefaultFiles(new DefaultFilesOptions
+    {
+        FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(frontendDistPath)
+    });
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(frontendDistPath)
+    });
+    app.MapFallbackToFile("index.html", new StaticFileOptions
+    {
+        FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(frontendDistPath)
+    });
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
