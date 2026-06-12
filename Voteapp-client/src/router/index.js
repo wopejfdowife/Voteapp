@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import VoteList from '../components/VoteList.vue'
-import Statistics from '../components/Statistics.vue'
+import HomePage from '../views/HomePage.vue'
+import CandidatesPage from '../views/CandidatesPage.vue'
+import CandidateDetail from '../views/CandidateDetail.vue'
+import MyVotePage from '../views/MyVotePage.vue'
+import AboutPage from '../views/AboutPage.vue'
+import LoginPage from '../views/LoginPage.vue'
+import RegisterPage from '../views/RegisterPage.vue'
 import AdminPanel from '../components/AdminPanel.vue'
 
 const router = createRouter({
@@ -8,13 +13,39 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'vote',
-      component: VoteList
+      name: 'home',
+      component: HomePage
     },
     {
-      path: '/statistics',
-      name: 'statistics',
-      component: Statistics
+      path: '/candidates',
+      name: 'candidates',
+      component: CandidatesPage
+    },
+    {
+      path: '/candidates/:id',
+      name: 'candidate-detail',
+      component: CandidateDetail,
+      props: true
+    },
+    {
+      path: '/candidates/my-vote',
+      name: 'my-vote',
+      component: MyVotePage
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: AboutPage
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginPage
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: RegisterPage
     },
     {
       path: '/admin',
